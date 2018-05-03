@@ -1,0 +1,169 @@
+.clickable {
+    cursor: pointer;
+}
+
+.removeButton {
+    color: red;
+}
+
+/*For the modal*/
+.modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .7);
+    transition: opacity .3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-container {
+    min-width: 40vw;
+    max-width: 80vw;
+    max-height: 80vh;
+    padding: 20px 30px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    transition: all .3s ease;
+    overflow: auto;
+}
+
+/*.modal-body {*/
+/*    margin: 20px 0;*/
+/*}*/
+
+.modal-enter,
+.modal-leave {
+    opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave .modal-container {
+    transform: scale(1.1);
+}
+
+/*End of modal*/
+
+.nav-custom > a{
+    color: black;
+    padding-bottom: 20px;
+}
+.nav-custom > a:hover{
+    border-bottom: 5px solid darkgreen;
+    padding-bottom: 15px;
+}
+.cus-hr {
+    margin-top: -.5rem;
+}
+
+        body {
+            background: #ECEFF1; 
+        }
+        .form-group {
+            position: relative;
+            margin-top: 20px;
+        }
+        
+        .form-control-placeholder {
+          position: absolute;
+          top: 0;
+          padding: 7px 0 0 13px;
+          transition: all 200ms;
+          opacity: 0.5;
+        }
+        
+        .form-control:focus + .form-control-placeholder,
+        .form-control:valid + .form-control-placeholder {
+          font-size: 75%;
+          transform: translate3d(0, -100%, 0);
+          opacity: 1;
+        }
+        /*.text-center > img {*/
+        /*    width: auto;*/
+        /*    height: 250px;*/
+        /*    margin: 0px 0px -5px 0px;*/
+        /*}*/
+        .panel {
+            margin-top: 50px;
+        }
+        /*.panel-heading {*/
+        /*    height: 200px;*/
+        /*    border: none;*/
+        /*    background:white;*/
+            /*background: url('https://lh6.googleusercontent.com/proxy/UKIX35V_6Xz-ZH3ANPV2_h_M0ii2bazpEOiU-SmYvRl9WAbHifCf0VPOmOInEP4kQ4C1sd9S_z6o7zNuNvaHL3RD-qnRUZ61PLeL2NKlEPW0f-uIGDJRAXgp1DsI-tZ7CH0kRuUIIn-0xXDA8pF5aV0ruxbkmdI=w160-h160-k-no') center / cover;*/
+        /*}*/
+        .login-title {
+            margin-top: -25px;
+            margin-bottom: 20px;
+        }
+        .panel-body {
+            margin: 0 auto;
+            width: 75%;
+
+        }
+        .input-group-text {
+            min-width: 6rem;
+        }
+        /*.btn-halve {*/
+        /*    padding: 0px;*/
+        /*    width: 50%;*/
+        /*}*/
+
+        .divider {
+        text-align: center;
+        position: relative;
+        top: 2px;
+        padding-top: 1px;
+        /*margin-bottom: 14px;*/
+        /*line-height: 0;*/
+        }
+    
+        .divider h5 {
+            line-height: 1;
+            font-size: 12px;
+            color: #767676;
+            font-weight: 400;
+            z-index: 2;
+            position: relative;
+            display: inline-block;
+            background-color: #fff;
+            padding: 0 8px 0 7px;
+        }
+    
+        .divider:after {
+            content: "";
+            width: 100%;
+            background-color: transparent;
+            display: block;
+            height: 1px;
+            border-top: 1px solid #e7e7e7;
+            position: absolute;
+            top: 58%;
+            margin-top: -1px;
+            z-index: 0;
+        }
+        .space-top {
+            margin-top: 40px;
+        }
+        .btn-space {
+            margin-top: 20px;
+        }
+        .btn-colored, .btn-colored:hover{
+            background: #275d39;
+            color:white;
+        }
+        .btn-colored:hover, .btn-colored:active, .btn-colored:focus {
+          color: #ffffff !important;
+          background-color: #275d39 !important;
+          border-color: #494F57 !important;
+        }
+        .btn-margin {
+            margin: 10px 0px 0px 10px;   
+        }
+        .img-registration{
+            margin-top: -40px;
+        }

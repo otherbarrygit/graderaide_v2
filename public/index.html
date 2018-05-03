@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>GraderAide</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/site-custom.css">
+
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script><!-- TODO -->
+    <script src="https://unpkg.com/vue-router@2.7.0"></script>
+    <script src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios@0.17.1/dist/axios.min.js"></script>
+    <script src="js/vue-clipboard.min.js"></script>
+
+
+</head>
+<body>
+  <!--<div class="container">-->
+  <!--  <div class="row justify-content-center">-->
+  <!--    <div class="col-sm-4">-->
+  <!--      <h3>Hello World!</h3>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
+  <div id="app">
+    <div class="container">
+      <router-view></router-view>
+    </div>
+  </div>
+  
+  <!--template for the basic modal-->
+  <template id="modal">
+      <div class="modal-mask" v-if="config.show" :config="config" transition="modal" @click="close">
+          <div class="modal-container" @click.stop>
+              <slot></slot>
+          </div>
+      </div>
+  </template>
+  
+  <!--template for the Assignment modal-->
+  <template id="modal-comment">
+      <modal :config="config">
+          <div class="modal-header">
+              <h5>{{title}}</h5>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                  <label for="assignment">Name</label>
+                  <input type="email" class="form-control" id="assignment" placeholder="Name" v-bind:value="assignment.id"
+                         v-on:input="updateValue($event.target.value)" lazy>
+              </div>
+              <div class="form-group">
+                  <label for="points">Points</label>
+                  <input type="number" class="form-control" id="points" placeholder="0" v-bind:value="assignment.points"
+                         v-on:input="updatePoints($event.target.value)" lazy>
+              </div>
+              <div class="row justify-content-center" v-if="isError">
+                <p class="text-danger">{{error}}</p>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-primary" @click="save()">OK</button>
+          </div>
+      </modal>
+  </template>
+  
+    <!--template for the course modal-->
+  <template id="modal-course">
+      <modal :config="config">
+          <div class="modal-header">
+              <h5>{{title}}</h5>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                  <label for="courseName">Name</label>
+                  <input type="text" class="form-control" id="courseName" placeholder="Course" v-bind:value="course.name"
+                         v-on:input="updateValue($event.target.value)" lazy>
+              </div>
+              <div class="form-group">
+                  <label for="sectionName">Section</label>
+                  <input type="email" class="form-control" id="sectionName" placeholder="Section" v-bind:value="course.section"
+                         v-on:input="updatePoints($event.target.value)" lazy>
+              </div>
+              <div class="row justify-content-center" v-if="isError">
+                <p class="text-danger">{{error}}</p>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-primary" @click="saveCourse()">OK</button>
+          </div>
+      </modal>
+  </template>
+  
+      <!--template for the new student modal-->
+  <template id="modal-newStudent">
+      <modal :config="config">
+          <div class="modal-header">
+              <h5>{{title}}</h5>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                  <label for="courseName">Name</label>
+                  
+                  
+                  <ul class="nav navbar-nav">
+                    <select class="custom-select custom-select-lg mb-3" v-model="currentStudent"
+                          @change="studentSelected = true;">
+                      <option :selected="students.fullName" disabled>Select Student</option>
+                      <!--<option v-for="student in students" v-bind:value="assignment.id">-->
+                      <option v-for="student in students">
+                          {{student.fullName}}-{{student.uvuid}}
+                      </option>
+                    </select>
+                  </ul>
+          <div class="modal-footer">
+              <button class="btn btn-primary" v-if="studentSelected" @click="saveStudent()">OK</button>
+          </div>
+      </modal>
+  </template>
+  
+  <script src="scripts/index.js"></script>
+</body>
+</html>

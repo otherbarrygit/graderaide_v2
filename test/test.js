@@ -46,7 +46,7 @@ describe("SAMPLE unit test",function(){
         if(err){
             
         }
-        console.log('asdfasdf',res);
+        //console.log('asdfasdf',res);
       // HTTP status should be 200
       res.status.should.equal(200);
       // Error key should be false.
